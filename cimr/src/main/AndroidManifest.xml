@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.gemadec.cimr">
+
+    <uses-permission android:name="android.permission.NFC" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.CimrProjectMigrationTest">
+        <activity
+            android:name=".activities.PuceActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.TraitementActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activities.ScanDocumentActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>
