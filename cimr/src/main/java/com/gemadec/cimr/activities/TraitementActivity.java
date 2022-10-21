@@ -104,20 +104,16 @@ public class TraitementActivity extends AppCompatActivity {
                 Log.i("SecondstepActivity", "PassportService open success : ");
                 Intent intentpuce = getIntent();
                 String passnum = intentpuce.getStringExtra("pass_num");
-                Log.i("SecondstepActivity", "num_pass : " + passnum);
-                Log.i("SecondstepActivity", "birthdate: " +intentpuce.getStringExtra("birthdate"));
-                Log.i("SecondstepActivity", "birthdate : " + DateUtil.GetDateFormat(intentpuce.getStringExtra("birthdate")));
-                Log.i("SecondstepActivity", "expirydate : " + DateUtil.GetDateFormat(intentpuce.getStringExtra("expirydate")));
                 BACKeySpec bacKey = new BACKey(intentpuce.getStringExtra("pass_num"), DateUtil.GetDateFormat(intentpuce.getStringExtra("birthdate"))
                         , DateUtil.GetDateFormat(intentpuce.getStringExtra("expirydate")));
-                //ps.doBAC(bacKey);
+
                 if (!doPace(ps, bacKey)) {
                     Log.e("TraitementActi", "doPace false");
                     ps.sendSelectApplet(false);
                     ps.doBAC(bacKey);
                 }
                 else{
-                    Log.e("TraitementActi", "doPace success");
+                    Log.i("TraitementActi", "doPace success");
                 }
                 /*
                  * Region for active authentication*/
@@ -146,10 +142,9 @@ public class TraitementActivity extends AppCompatActivity {
                     Log.i("SecondstepActivity", "naissance : "+mrzinfo.getDateOfBirth());
                     Log.i("SecondstepActivity", "naissance : "+mrzinfo.getDateOfExpiry());
 
-                    //DG1File dg1 = (DG1File) LDSFileUtil.getLDSFile(PassportService.EF_DG1, is);
+
                     Log.i("SecondstepActivity", "DG1File success : ");
                     DG2File dg2 = new DG2File(is2);
-                    // DG2File dg2 = (DG2File) LDSFileUtil.getLDSFile(PassportService.EF_DG2, is2);
                     Log.i("SecondstepActivity", "DG2File success : ");
                     int cpt = 0;
                     publishProgress("photo");

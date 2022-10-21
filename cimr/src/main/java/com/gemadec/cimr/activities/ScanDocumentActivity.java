@@ -110,38 +110,13 @@ public class ScanDocumentActivity extends AppCompatActivity {
                 intent.putExtras(bundle);
                 setResult(RESULT_OK, intent);
                 finish();
-               /* File f3 = new File(Environment.getExternalStorageDirectory() + "/tmp/");
-                if (!f3.exists())
-                    f3.mkdirs();
-                OutputStream outStream = null;
-                String pathName = Environment.getExternalStorageDirectory() + "/tmp/" + "photo.png";
-                File file = new File(pathName);
-                if (!file.exists()) {
-                    try {
-                        file.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
-                try {
-                    outStream = new FileOutputStream(file);
-                    documentImage.compress(Bitmap.CompressFormat.PNG, 85, outStream);
-                    outStream.close();
-                    // Toast.makeText(getApplicationContext(), "Saved", Toast.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                bundle.putString("photoPath", pathName);
-                intent.putExtras(bundle);
-                setResult(RESULT_OK, intent);
-                finish();*/
+
             }
             if (action == DocReaderAction.CANCEL) {
                 cancelCamera();
-                // Toast.makeText(MainActivity.this, "Scanning was cancelled",Toast.LENGTH_LONG).show();
             } else if (action == DocReaderAction.ERROR) {
                 cancelCamera();
-                //  Toast.makeText(MainActivity.this, "Error:" + error, Toast.LENGTH_LONG).show();
+
             } else {
 
             }
