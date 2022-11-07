@@ -47,9 +47,18 @@ public class PuceActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_puce);
         getWindow().getDecorView().setBackgroundColor(Color.WHITE);
-        pendingIntent = PendingIntent.getActivity(
-                this, 0, new Intent(this, getClass()).addFlags( Intent.FLAG_ACTIVITY_SINGLE_TOP ), PendingIntent.FLAG_IMMUTABLE);
+       /* if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+            pendingIntent = PendingIntent.getActivity(this,
+                    0, new Intent(this, getClass()).addFlags( Intent.FLAG_ACTIVITY_SINGLE_TOP ), PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_MUTABLE);
 
+        }else {
+            pendingIntent = PendingIntent.getActivity(this,
+                    0, new Intent(this, getClass()).addFlags( Intent.FLAG_ACTIVITY_SINGLE_TOP ), PendingIntent.FLAG_UPDATE_CURRENT);
+
+        }*/
+
+        pendingIntent = PendingIntent.getActivity(
+                this, 0, new Intent(this, getClass()).addFlags( Intent.FLAG_ACTIVITY_SINGLE_TOP ), PendingIntent.FLAG_MUTABLE | PendingIntent.FLAG_UPDATE_CURRENT);
         IntentFilter techFilter = new IntentFilter(NfcAdapter.ACTION_TECH_DISCOVERED);
         IntentFilter tagFilter = new IntentFilter(NfcAdapter.ACTION_TAG_DISCOVERED);
         IntentFilter ndefFilter = new IntentFilter(NfcAdapter.ACTION_NDEF_DISCOVERED);
